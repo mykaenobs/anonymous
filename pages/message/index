@@ -1,0 +1,65 @@
+import Head from 'next/head'
+import Header from '@components/App/Header/Header';
+import Footer from '@components/App/Footer';
+import Content from '@components/Shared/Content';
+import styled from 'styled-components';
+import { Button } from '@components/Shared/Button';
+import NoUser from '@components/App/Header/NoUser';
+
+
+const Message = () => {
+  return (
+    <>
+    <Head>
+      <title>Send Message - User Account | Anomity</title>
+    </Head>
+    <Header>
+      <NoUser />
+    </Header>
+    <Content title="Send  An Anonymous Message">
+      <Form>
+        <Label><Title>I Dare You To Write Me</Title> <Words>255 letters remaining</Words></Label>
+        <TextArea placeholder="Write an anonymous message..."></TextArea>
+      </Form>
+      <Button title="Send Message" />
+    </Content>
+    <Footer />
+    </>
+  );
+};
+
+export default Message;
+
+const Form = styled.form``;
+
+const Label = styled.label`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
+
+const Title = styled.span`
+font-size: 1rem;
+color: white;
+font-weight: 600;
+`;
+
+const Words = styled.span`
+color: ${({theme}) => theme.dtc};
+font-size: .8rem;
+font-weight: 300;
+`;
+
+const TextArea = styled.textarea`
+width: 100%;
+height: 15em;
+font-size: .8rem;
+background-color: ${({theme}) => theme.bg};
+border: 2px solid ${({theme}) => theme.bd};
+border-radius: 5px;
+padding: 1em;
+color: white;
+margin: 1em 0;
+resize: none;
+font-family: Poppins;
+`;
